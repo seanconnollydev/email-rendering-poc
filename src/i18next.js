@@ -3,7 +3,7 @@ import i18next from 'i18next';
 export default function initi18Next(lng) {
   return i18next.init({
     lng: lng || 'en',
-    debug: true,
+    debug: false,
     resources: {
       en: {
         translation: {

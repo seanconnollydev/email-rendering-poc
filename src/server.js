@@ -1,16 +1,11 @@
 import express from 'express';
-import React from 'react';
-import {render} from 'mjml-react';
-import initi18Next from './i18next';
-import Basic from './emails/basic';
+import renderEmailHtml from './renderEmailHtml';
 
 const port = 3000;
 const app = express();
 
 app.get('*', async (req, res) => {
-  const initialProps = await Basic.getInitialProps();
-  const i18next = await initi18Next('de');
-  const { html } = await render(<Basic t={i18next} {...initialProps} />, { validationLevel: 'soft' });
+  const html = await renderEmailHtml();
   res.send(html);
 });
 
