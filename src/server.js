@@ -1,13 +1,15 @@
 import express from 'express';
+import React from 'react';
 import {render} from 'mjml-react';
 
-import {generate} from './emails/basic';
+import Basic from './emails/basic';
 
 const port = 3000;
 const app = express();
 
-app.get('*', (req, res) => {
-  const {html}  = render(generate(), {validationLevel: 'soft'});
+app.get('*', async (req, res) => {
+  const initialProps = await Basic.getInitialProps();
+  const { html } = await render(<Basic {...initialProps} />, { validationLevel: 'soft' });
   res.send(html);
 });
 

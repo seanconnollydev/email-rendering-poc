@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 import {
   Mjml,
@@ -14,7 +15,9 @@ import {
   MjmlText
 } from 'mjml-react';
 
-export const generate = () => {
+const Basic = (props) => {
+  const { user } = props;
+
   return (
     <Mjml>
       <MjmlHead>
@@ -34,6 +37,7 @@ export const generate = () => {
       <MjmlBody width={500}>
         <MjmlSection fullWidth backgroundColor="#efefef">
           <MjmlColumn>
+            <MjmlText align="center">Hey { user.name }</MjmlText>
             <MjmlImage src="https://static.wixstatic.com/media/5cb24728abef45dabebe7edc1d97ddd2.jpg" />
           </MjmlColumn>
         </MjmlSection>
@@ -56,3 +60,10 @@ export const generate = () => {
     </Mjml>
   );
 };
+
+Basic.getInitialProps = async () => {
+  const resp = await axios.get('https://jsonplaceholder.typicode.com/users/1');
+  return { user: resp.data };
+}
+
+export default Basic;
