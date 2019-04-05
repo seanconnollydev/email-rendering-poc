@@ -9,6 +9,7 @@
     "predev": "npm run build",
     "dev": "npm run build:watch & nodemon ./dist/server.js --watch ./dist",
     "gen": "node ./dist/cli.js",
+    "send": "node ./dist/send.js",
     "test": "jest"
   },
   "repository": {
@@ -28,6 +29,7 @@
     "@babel/preset-env": "7.4.3",
     "@babel/preset-react": "7.0.0",
     "@babel/runtime": "7.4.3",
+    "nodemailer": "6.0.0",
     "nodemon": "1.18.10"
   },
   "dependencies": {
