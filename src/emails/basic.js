@@ -37,8 +37,8 @@ const Basic = (props) => {
       <MjmlBody width={500}>
         <MjmlSection fullWidth backgroundColor="#efefef">
           <MjmlColumn>
-            <MjmlText align="center" data-testid="user-greeting">Hey { user.name }</MjmlText>
-            <MjmlText align="center" data-testid="user-greeting">Translated: {t('key')}</MjmlText>
+            <MjmlText align="center">Hey { user.name }</MjmlText>
+            <MjmlText align="center">Translated: {t('key')}</MjmlText>
             <MjmlImage src="https://static.wixstatic.com/media/5cb24728abef45dabebe7edc1d97ddd2.jpg" />
           </MjmlColumn>
         </MjmlSection>

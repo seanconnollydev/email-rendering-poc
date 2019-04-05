@@ -10,7 +10,7 @@ const renderEmailHtml = async (options) => {
   const Template = require(`./emails/${templateId}`).default;
   if (!Template) throw new Error('Unable to find template with id', templateId);
 
-  const initialProps = await Template.getInitialProps();
+  const initialProps = Template.getInitialProps ? await Template.getInitialProps() : {};
   const i18next = await initi18Next(language);
   const { html } = await render(<Template t={i18next} {...initialProps} />, { validationLevel: 'soft' });
   return html;
