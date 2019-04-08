@@ -1,13 +1,17 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import nodemailer from 'nodemailer';
 import renderEmailHtml from './renderEmailHtml';
 
 (async () => {
+  const { MAILTRAP_USER, MAILTRAP_PASSWORD } = process.env;
+
   const transporter = nodemailer.createTransport({
     host: "smtp.mailtrap.io",
     port: 2525,
     auth: {
-      user: "347ed0dcd4f7cb",
-      pass: "c3c3e1930c86d3"
+      user: MAILTRAP_USER,
+      pass: MAILTRAP_PASSWORD,
     }
   });
 
