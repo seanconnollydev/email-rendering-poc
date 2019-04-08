@@ -15,14 +15,14 @@ import renderEmailHtml from './renderEmailHtml';
     }
   });
 
-  const html = await renderEmailHtml({ templateId: 'basic' });
+  const { html, text } = await renderEmailHtml({ templateId: 'basic' });
 
   // setup email data with unicode symbols
   const mailOptions = {
     from: '"Fred Foo 👻" <foo@example.com>', // sender address
     to: "bar@example.com, baz@example.com", // list of receivers
     subject: "Hello ✔", // Subject line
-    text: "Hello world?", // plain text body
+    text, // plain text body
     html,
   };
 
