@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-
 import {
   Mjml,
   MjmlHead,
@@ -14,6 +13,7 @@ import {
   MjmlStyle,
   MjmlText
 } from 'mjml-react';
+import Footer from '../components/Footer';
 
 const Basic = (props) => {
   const { t, user } = props;
@@ -57,6 +57,7 @@ const Basic = (props) => {
             <MjmlText>I am red</MjmlText>
           </MjmlColumn>
         </MjmlSection>
+        <Footer />
       </MjmlBody>
     </Mjml>
   );
