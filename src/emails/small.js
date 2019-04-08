@@ -20,7 +20,7 @@ const Small = () => {
       <MjmlBody width={500}>
         <MjmlSection fullWidth backgroundColor="#efefef">
           <MjmlColumn>
-            <MjmlText align="center">Such a small template eh.</MjmlText>
+            <MjmlText align="center">Such a small template.</MjmlText>
           </MjmlColumn>
         </MjmlSection>
       </MjmlBody>

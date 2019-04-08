@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import reload from 'reload';
 import renderEmailHtml from './renderEmailHtml';
 
 const port = 3000;
@@ -12,9 +13,11 @@ app.get('/preview/:templateId', async (req, res) => {
   res.send(html);
 });
 
-app.get('*', async (req, res) => {
-  const { html } = await renderEmailHtml({ templateId: 'basic', language: 'de' });
-  res.send(html);
-});
+// app.get('*', async (req, res) => {
+//   const { html } = await renderEmailHtml({ templateId: 'basic', language: 'de' });
+//   res.send(html);
+// });
 
-app.listen(port, () => console.log(`Listening on port ${port}!`));
+reload(app).then(() => {
+  app.listen(port, () => console.log(`Listening on port ${port}!`));
+});
