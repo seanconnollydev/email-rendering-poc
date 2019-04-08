@@ -1,8 +1,11 @@
 import express from 'express';
+import cors from 'cors';
 import renderEmailHtml from './renderEmailHtml';
 
 const port = 3000;
 const app = express();
+
+app.use(cors());
 
 app.get('/preview/:templateId', async (req, res) => {
   const { html } = await renderEmailHtml({ templateId: req.params.templateId, language: 'de' });
